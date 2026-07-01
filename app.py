@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from database import init_db
 import sqlite3
+from calculator import calculate_payoff_month
 
 
 app = Flask(__name__)
@@ -47,7 +48,8 @@ def get_debts():
             "name": row[1],
             "balance": row[2],
             "interest_rate": row[3],
-            "minimum_payment": row[4]
+            "minimum_payment": row[4],
+            "payoff_months": calculate_payoff_month(row[2], row[3], row[4])
         })
     
     return jsonify(debts)
