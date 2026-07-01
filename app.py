@@ -13,7 +13,7 @@ def greeting():
 
 @app.route("/debts", methods = ["POST"])
 def add_debt():
-    data = request.get_json()
+    data = request.get_json(force = True)
     name = data.get("name")
     balance = data.get("balance")
     interest_rate = data.get("interest_rate")
@@ -27,6 +27,8 @@ def add_debt():
     )
     connection.commit()
     connection.close()
+
+    return jsonify({"message": "Debt added successfully"}), 201
 
 
 
