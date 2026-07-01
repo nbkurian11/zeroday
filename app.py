@@ -32,5 +32,10 @@ def add_debt():
 
 
 
+@app.route("/debts", methods = ["POST"])
+def get_debts():
+    
+
+
 if __name__ == "__main__":
     app.run(debug=True)
