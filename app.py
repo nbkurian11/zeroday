@@ -52,6 +52,20 @@ def get_debts():
     
     return jsonify(debts)
 
+
+@app.route("/debts/<int:id>", methods=["DELETE"])
+def delete_debt(id):
+    connection = sqlite3.connect("zeroday.db")
+    cursor  = connection.cursor()
+    cursor.execute("DELETE FROM debts WHERE id = ?", (id,))
+    connection.commit()
+    connection.close() 
+
+
+    return jsonify({"message": "Debt deleted successfully"}), 200
+ 
+
+
     
     
 
