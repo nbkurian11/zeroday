@@ -32,8 +32,27 @@ def add_debt():
 
 
 
-@app.route("/debts", methods = ["POST"])
+@app.route("/debts", methods = ["GET"])
 def get_debts():
+    connection = sqlite3.connect("zeroday.db")
+    cursor  = connection.cursor()
+    cursor.execute("SELECT * FROM debts ORDER BY interest_rate DESC") 
+    rows = cursor.fetchall()
+    connection.close()
+
+    debts = []
+    for row in rows:
+        debts.append({
+            "id": row[0],
+            "name": row[1],
+            "balance": row[2],
+            "interest_rate": row[3],
+            "minimum_payment": row[4]
+        })
+    
+    return jsonify(debts)
+
+    
     
 
 
