@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from database import init_db
 import sqlite3
 from calculator import calculate_payoff_month
@@ -9,7 +9,7 @@ init_db()
 
 @app.route("/")
 def greeting():
-    return "ZeroDay is running"
+    return render_template("index.html")
 
 
 @app.route("/debts", methods = ["POST"])
