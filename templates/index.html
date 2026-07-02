@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroDay</title>
+</head>
+
+<body>
+    <p>Add a debt</p>
+    <form>
+        <label>Enter the type of debt:</label>
+        <input type="text" id="name">
+        <label>Balance:</label>
+        <input type="number" id="balance">
+        <label>Interest rate:</label>
+        <input type="number" id="interestrate">
+        <label>Minimum payment:</label>
+        <input type="number" id="minpayment">
+        <button id="submit">Add Debt</button>
+
+    </form>
+
+    <h2>Total Debt: $<span id="total">0</span></h2>
+
+    <div id="debt-list"></div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
