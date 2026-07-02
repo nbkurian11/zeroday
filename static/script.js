@@ -20,3 +20,7 @@ function loadDebts(){
     })
 
 }
+
+function deleteDebt(){
+
+}
