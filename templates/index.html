@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZeroDay</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
 </head>
 
 <body>
-    <p>Add a debt</p>
+    <div class="container">
+        <h1>ZeroDay</h1>
     <form>
         <label>Enter the type of debt:</label>
         <input type="text" id="name">
@@ -25,5 +28,6 @@
 
     <div id="debt-list"></div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </div>
 </body>
 </html>

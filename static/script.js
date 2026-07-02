@@ -5,7 +5,7 @@ function loadDebts(){
         let html = ''
         data.forEach(debt => {
             html += `
-            <div>
+            <div class ="debt-card">
             <h3>${debt.name}</h3>
                 <p>Balance: $${debt.balance}</p>
                 <p>Interest Rate: ${debt.interest_rate}%</p>
